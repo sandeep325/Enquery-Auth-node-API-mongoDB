@@ -1,0 +1,9 @@
+1) to run cmd for install all pakages ->  npm i
+2) run server of node -> npm run dev
+3) database for this project-> mongodb
+4) using mongoose ORM
+5)user registration and login api (with jwt token)
+6) enquery (CRUD) apis with token validate 
+7) .env file for (PORT,DB)
+8) All api have proper validation with the help of (express-validator)pkg.
+
