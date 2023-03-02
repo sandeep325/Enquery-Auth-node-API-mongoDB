@@ -199,3 +199,41 @@ exports.PaginationListing = async (req, res, next) => {
 
 }
 
+
+exports.RandomEnqueryGet = async(req,res,next) =>{
+
+    const count = await Enquery.count();
+    // console.log(count);
+    var random = Math.floor(Math.random() * count);
+    const GetRandom = await Enquery.find().limit(1).skip(random);
+    //  console.log(GetRandom);
+    if(GetRandom?.length >0 ) {
+        return res.status(200).json({
+            status: 200,
+            count: GetRandom?.length,
+            data: GetRandom.map((data)=>{
+                return{
+                    id: data?._id,
+                    GuestName: data?.GuestName,
+                    Email: data?.Email,
+                    Phone: data?.Phone,
+                    Message: data?.Message,
+                    Country: data?.Country,
+                    State: data?.State,
+                    Zipcode: data?.Zipcode
+                }
+            }),
+            message: 'Random Enquery list.'
+        });
+
+    } else {
+        return res.status(200).json({
+            status: 200,
+            count: 0,
+            data: [],
+            message: 'Random Enquery list.'
+        });
+    }
+
+
+}

@@ -21,6 +21,7 @@ routes.get('/enquiries/:id',checkTcken,GetEnqueryByID);
 routes.delete('/enquiries/:id',checkTcken,DeleteEnquery);
 
 routes.get('/enquiries_paginationList',checkTcken,PaginationListing);
+routes.get('/enquiries_random',RandomEnqueryGet);
 
 module.exports=routes; 
 
